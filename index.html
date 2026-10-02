@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: rgb(238, 240, 240);
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       .Profile-card {
+            background: rgb(11, 153, 11);
+            border-radius: 18px;
+            padding: 30px;
+
+            width: 500px;
+            min-height: 220px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 30px;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .profile-image {
+            flex-shrink: 0;
+        }
+
+        .profile-image img {
+            width: 150px;
+            height: 150px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 4px solid white;
+        }
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 26px;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .profile-city {
+            font-size: 15px;
+            color: rgb(240, 240, 240);
+
+            margin-bottom: 18px;
+        }
+
+        .profile-skill {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+       git init .badge {
+            padding: 7px 14px;
+
+            border-radius: 20px;
+
+            background: rgb(218, 224, 218);
+            color: rgb(16, 1, 1);
+
+            cursor: pointer;
+
+            font-size: 13px;
+        }
+
+        .badge:hover {
+            background: white;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="Profile-card">
+
+        <!-- Left Side -->
+        <div class="profile-image">
+            <img src="jpg.png" alt="profile">
+        </div>
+
+        <!-- Right Side -->
+        <div class="profile-info">
+
+            <h1 class="profile-name"></h1>
+
+            <p class="profile-city"></p>
+
+            <div class="profile-skill"></div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const profile = {
+            name: "Fatima Yousofi",
+            city: "📍 Afghanistan, Kabul",
+            skills: ["HTML", "CSS", "JavaScript"]
+        };
+
+
+        const { name, city, skills } = profile;
+
+
+        const nameElement = document.querySelector(".profile-name");
+
+        const profileCity = document.querySelector(".profile-city");
+
+        const skillElement = document.querySelector(".profile-skill");
+
+
+        nameElement.textContent = name;
+
+        profileCity.textContent = city;
+
+
+        const badges = skills.map(function(skill) {
+
+            return `<span class="badge">${skill}</span>`;
+
+        });
+
+
+        const badgeHTML = badges.join("");
+
+        skillElement.innerHTML = badgeHTML;
+
+
+        const badgeElements =
+            document.querySelectorAll(".profile-skill span");
+
+
+        badgeElements.forEach(function(badge) {
+
+            badge.classList.add("badge");
+
+        });
+
+    </script>
+
+</body>
+</html>
